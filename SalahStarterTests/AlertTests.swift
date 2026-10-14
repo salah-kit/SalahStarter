@@ -164,7 +164,7 @@ struct AlertTests {
     #expect(alerts.authorization == .authorized)
     #expect(alerts.timeSensitive == .enabled)
     #expect(center.pending.count == 60)
-    let report = try #require(alerts.report)
+    let report = try #require(alerts.report(for: Self.makkah))
     #expect(report.failures.isEmpty)
     #expect(report.confirmed.count == 60)
     #expect(report.confirmedCoveredUntil != nil)
@@ -188,6 +188,40 @@ struct AlertTests {
     #expect(asked.times == 1)
   }
 
+  @Test("right after alerts are turned on, nothing is claimed until the new plan is read back")
+  func noStaleReport() async throws {
+    // With alerts off, the empty plan is "complete" for two weeks. That report must not show
+    // as coverage once the person turns alerts on.
+    let center = FakeCenter()
+    let probe = Probe()
+    let permissions = NotificationPermissions(
+      request: {
+        await MainActor.run { probe.reportDuringPrompt = probe.alerts?.report(for: Self.makkah) }
+        center.status = .authorized
+      },
+      timeSensitiveSetting: { .enabled })
+    let (alerts, stored) = Self.coordinator(center, permissions: permissions)
+    defer { _ = try? stored.save(nil) }
+    probe.alerts = alerts
+
+    await alerts.replan(settings: Self.makkah)
+    let off = try #require(alerts.report(for: Self.makkah))
+    #expect(off.confirmedCoveredUntil != nil)
+
+    await alerts.setAlerts(on: true, settings: Self.makkah)
+    #expect(probe.reportDuringPrompt == nil)
+    #expect(alerts.report(for: Self.makkah)?.confirmed.count == 60)
+    // A report is for the settings it planned.
+    #expect(alerts.report(for: PrayerSettings(place: .london)) == nil)
+  }
+
+  /// What the coordinator showed while the permission prompt was up.
+  @MainActor
+  final class Probe {
+    var alerts: AlertCoordinator?
+    var reportDuringPrompt: NotificationApplyReport?
+  }
+
   @Test("denied permission installs nothing and says so")
   func denied() async throws {
     let center = FakeCenter()
@@ -201,8 +235,11 @@ struct AlertTests {
     #expect(alerts.authorization == .denied)
     #expect(alerts.timeSensitive == .disabled)
     #expect(center.pending.isEmpty)
-    #expect(alerts.report?.confirmed.isEmpty == true)
-    #expect(alerts.report?.failures.values.allSatisfy { $0 == .notAuthorized } == true)
+    let report = try #require(alerts.report(for: Self.makkah))
+    #expect(report.confirmed.isEmpty)
+    // Every planned alert is reported, each as not authorized.
+    #expect(report.failures.count == 60)
+    #expect(report.failures.values.allSatisfy { $0 == .notAuthorized })
   }
 
   @Test("before setup there is nothing to alert for, and old requests go")

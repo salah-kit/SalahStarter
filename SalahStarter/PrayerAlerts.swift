@@ -131,8 +131,8 @@ final class AlertCoordinator {
   /// Whether alerts may be Time Sensitive: `.enabled` when the app has the capability and the
   /// person hasn't turned it off.
   private(set) var timeSensitive: UNNotificationSetting?
-  /// What the last replan confirmed, or `nil` before the first.
-  private(set) var report: NotificationApplyReport?
+  /// What the last replan confirmed, and the options and settings it planned.
+  private var lastReport: (report: NotificationApplyReport, inputs: ReportInputs)?
 
   @ObservationIgnored private let shared: SharedValue<AlertOptions>
   @ObservationIgnored private let center: any AlertNotificationCenter
@@ -156,6 +156,17 @@ final class AlertCoordinator {
       identifierPrefix: "\(Bundle.main.bundleIdentifier ?? "app").",
       namespace: AlertPlanning.namespace, threadIdentifier: AlertPlanning.namespace,
       center: center)
+  }
+
+  /// What the last replan confirmed, if it planned these settings and the current options.
+  ///
+  /// Right after a change, the previous report describes the previous plan: with alerts off,
+  /// an empty plan is "complete" for two weeks. So no report is shown until the replan for the
+  /// change has read its requests back.
+  func report(for settings: PrayerSettings?) -> NotificationApplyReport? {
+    guard let lastReport, lastReport.inputs == ReportInputs(options: options, settings: settings)
+    else { return nil }
+    return lastReport.report
   }
 
   /// Turns the alerts on or off, asks for permission the first time they're turned on, and
@@ -184,6 +195,7 @@ final class AlertCoordinator {
   func replan(settings: PrayerSettings?, now: Date = Date()) async {
     generation += 1
     let mine = generation
+    let inputs = ReportInputs(options: options, settings: settings)
     let authorization = await center.authorizationStatus()
     let timeSensitive = await permissions.timeSensitiveSetting()
     guard mine == generation else { return }
@@ -192,7 +204,9 @@ final class AlertCoordinator {
     let plan: NotificationPlan
     if let settings {
       // The options are bounded, so planning can't fail; if it did, the requests would stay.
-      guard let planned = try? AlertPlanning.plan(settings: settings, options: options, at: now)
+      guard
+        let planned = try? AlertPlanning.plan(
+          settings: settings, options: inputs.options, at: now)
       else { return }
       plan = planned
     } else {
@@ -205,12 +219,29 @@ final class AlertCoordinator {
       names: AppLanguage.names, timeZone: settings?.place.location.timeZone ?? .current)
     let report = try? await scheduler.apply(plan) { content.make($0) }
     guard mine == generation else { return }
-    self.report = report
+    lastReport = report.map { ($0, inputs) }
   }
 
   private func saveOptions() {
     // Nothing to reload: no widget reads the options. A failure leaves them for this session.
     _ = try? shared.save(options)
+  }
+}
+
+/// The options and settings a plan was made from.
+nonisolated struct ReportInputs: Equatable, Sendable {
+  var options: AlertOptions
+  var settings: PrayerSettings?
+}
+
+extension UNAuthorizationStatus {
+  /// Whether the status lets the app's alerts through: authorized, provisional or ephemeral.
+  nonisolated var allowsAlerts: Bool {
+    switch self {
+    case .authorized, .provisional, .ephemeral: true
+    case .denied, .notDetermined: false
+    @unknown default: false
+    }
   }
 }
 

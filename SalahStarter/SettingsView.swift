@@ -103,18 +103,23 @@ private struct AlertsSection: View {
 
   @ViewBuilder
   private var status: some View {
-    Text(authorizationText)
-      .accessibilityIdentifier("alerts.authorization")
-    Text(timeSensitiveText)
-      .accessibilityIdentifier("alerts.timeSensitive")
-    if let report = alerts.report {
+    // Nothing until the app has read the system's answers.
+    if let authorizationText {
+      Text(authorizationText)
+        .accessibilityIdentifier("alerts.authorization")
+    }
+    if let timeSensitiveText {
+      Text(timeSensitiveText)
+        .accessibilityIdentifier("alerts.timeSensitive")
+    }
+    if let report = alerts.report(for: settings) {
       if let until = report.confirmedCoveredUntil, report.failures.isEmpty {
         let zone = settings.place.location.timeZone
         let date = until.formatted(
           Date.FormatStyle(date: .abbreviated, time: .shortened, timeZone: zone))
         Text("Alerts are scheduled until \(date).")
           .accessibilityIdentifier("alerts.coverage")
-      } else if !report.failures.isEmpty, alerts.authorization == .authorized {
+      } else if !report.failures.isEmpty, alerts.authorization?.allowsAlerts == true {
         Text("\(report.failures.count) alerts couldn't be scheduled.")
           .accessibilityIdentifier("alerts.coverage")
         // The system's own words, such as why it rejected a request. The app tries again
@@ -129,20 +134,22 @@ private struct AlertsSection: View {
     }
   }
 
-  private var authorizationText: LocalizedStringKey {
+  private var authorizationText: LocalizedStringKey? {
     switch alerts.authorization {
+    case nil: nil
     case .authorized?, .provisional?, .ephemeral?: "Notifications are allowed."
     case .denied?: "Notifications are turned off in the Settings app."
-    case .notDetermined?, nil: "Notifications aren't allowed yet."
+    case .notDetermined?: "Notifications aren't allowed yet."
     @unknown default: "Notifications aren't allowed yet."
     }
   }
 
-  private var timeSensitiveText: LocalizedStringKey {
+  private var timeSensitiveText: LocalizedStringKey? {
     switch alerts.timeSensitive {
+    case nil: nil
     case .enabled?: "Time Sensitive alerts are allowed."
     case .disabled?: "Time Sensitive alerts are turned off in the Settings app."
-    case .notSupported?, nil: "Time Sensitive alerts aren't available."
+    case .notSupported?: "Time Sensitive alerts aren't available."
     @unknown default: "Time Sensitive alerts aren't available."
     }
   }

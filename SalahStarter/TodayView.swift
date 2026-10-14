@@ -9,7 +9,9 @@ struct TodayView: View {
   var body: some View {
     Group {
       if let settings = model.settings {
-        // The state changes at prayer times, which fall on whole minutes.
+        // The state changes at prayer times, which every method's rounding puts on a whole
+        // minute. If your settings turn rounding off, refresh at the state's changes instead
+        // (SalahWidgets' PrayerTimelineBuilder lists them).
         TimelineView(.everyMinute) { context in
           TodayContent(settings: settings, now: context.date)
         }

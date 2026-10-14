@@ -27,10 +27,16 @@ nonisolated final class StarterJourneys: JourneyCase {
     app = launch(reset: false)
     XCTAssertEqual(label("today.place", in: app), "Istanbul")
 
-    // The calculation: another method, then the Hanafi Asr, which is later.
-    let standardAsr = label("prayer.asr", in: app)
+    // The calculation: another method, then the Hanafi Asr. Each choice moves Asr on its own:
+    // the methods differ in their minutes, the schools in the shadow's length.
+    let diyanetAsr = label("prayer.asr", in: app)
     openSettings(in: app)
     pick("Muslim World League", from: "settings.method", in: app)
+    app.navigationBars.buttons.element(boundBy: 0).tap()
+    XCTAssertEqual(label("today.method", in: app), "Muslim World League")
+    let standardAsr = label("prayer.asr", in: app)
+    XCTAssertNotEqual(standardAsr, diyanetAsr)
+    openSettings(in: app)
     let madhab = element("settings.madhab", in: app)
     XCTAssertTrue(madhab.waitForExistence(timeout: 10))
     madhab.tap()
@@ -69,7 +75,7 @@ nonisolated final class StarterJourneys: JourneyCase {
       // honestly; the scheduling can't be checked on this boot.
       screenshot("03-alerts-rejected")
       throw XCTSkip(
-        "The simulator rejected the requests after the first permission: \(Self.clean(failure.label)). Restart the simulator and run the journey again."
+        "The simulator rejected the requests after the first permission (\(Self.clean(failure.label))). Restart the simulator and run the journey again."
       )
     }
     waitForLabel("alerts.coverage", in: app, timeout: 30) {
