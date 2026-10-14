@@ -66,13 +66,13 @@ Both targets' entitlements and Info.plist files read this setting, so the app an
 
 ### Run it
 
-Open `SalahStarter.xcodeproj`, choose the `SalahStarter` scheme and a simulator or your iPhone, and run. Choose a place. Then add the widget: touch and hold the Home Screen, tap Edit (or + before iOS 18), then Add Widget, and choose your app.
+Open `SalahStarter.xcodeproj`, choose the `SalahStarter` scheme and a simulator or your iPhone, and run. Choose a place. Then add the widget: touch and hold the Home Screen, tap Edit, then Add Widget (on iOS 17, tap +), and choose your app.
 
 On an iPhone, Xcode's automatic signing registers your two identifiers, the App Group and the Time Sensitive capability for your team the first time it builds (from the command line, pass `-allowProvisioningUpdates` to `xcodebuild`). A free Personal Team may not offer every capability; Xcode says so when it signs. Without the Time Sensitive capability:
 
 1. remove `com.apple.developer.usernotifications.time-sensitive` from `project.yml` and run [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`xcodegen`);
 2. in `SalahStarter/PrayerAlerts.swift`, make the alert at a prayer's time `.active`, and change the Alerts footer in `SalahStarter/SettingsView.swift`;
-3. update the tests that check it: `content()` in `SalahStarterTests/AlertTests.swift` and the "Time Sensitive alerts are allowed." line in `SalahStarterUITests/StarterJourneys.swift`.
+3. update the tests that check it: `content()` and `turningOn()` in `SalahStarterTests/AlertTests.swift`, and the "Time Sensitive alerts are allowed." line in `SalahStarterUITests/StarterJourneys.swift`.
 
 ## Quick start
 
@@ -129,7 +129,7 @@ The alerts replan whenever the app becomes active and whenever the settings chan
 | The alerts | `SalahStarter/PrayerAlerts.swift`: what's offered, the wording and the interruption levels |
 | The text | `Shared/Localizable.xcstrings`, with Arabic to review |
 | The icon | `SalahStarter/Assets.xcassets/AppIcon` |
-| The project's name | Easiest to keep: your app's name is `APP_DISPLAY_NAME`. To rename the project and its targets, change `project.yml` and run XcodeGen, delete the old `SalahStarter.xcodeproj`, and rename the folders, the tests' `@testable import`, and the project, scheme and folder names in `.github/workflows/ci.yml` and `scripts/lint.sh` |
+| The project's name | Easiest to keep: your app's name is `APP_DISPLAY_NAME`. To rename the project and its targets, change `project.yml` and run XcodeGen, delete the old `SalahStarter.xcodeproj`, and rename the folders, the tests' `@testable import`, and the project, scheme and folder names in `.github/workflows/ci.yml`, `scripts/lint.sh` and the commands in `CONTRIBUTING.md` |
 
 Before you ship, have a native speaker review every translation, and test the widget and the alerts on a real iPhone for a few days: WidgetKit and the notification system decide when things happen, and only a device shows it.
 
