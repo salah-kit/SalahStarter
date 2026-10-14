@@ -6,6 +6,11 @@ this template" copies `main`, so changes are listed under Unreleased with the da
 
 ## [Unreleased]
 
+### Fixed
+
+- Build the app and widget with SalahKit 0.4.0's row configuration, preserving the prayer-row
+  identifiers (2026-10-14). New projects require SalahKit 0.4.0 or later.
+
 ### Added
 
 - The template, on SalahKit from 0.2.0 (2026-10-14):

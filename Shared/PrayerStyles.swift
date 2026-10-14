@@ -89,7 +89,7 @@ struct RowStyle: PrayerRowStyle {
     .foregroundStyle(color.color)
     .padding(.vertical, 2)
     .accessibilityElement(children: .combine)
-    .accessibilityIdentifier("prayer.\(configuration.event.kind.rawValue)")
+    .accessibilityIdentifier("prayer.\(configuration.kind.rawValue)")
   }
 }
 

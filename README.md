@@ -149,7 +149,7 @@ Before you ship, have a native speaker review every translation, and test the wi
 
 The template is used from `main`; it has no releases. [CHANGELOG.md](CHANGELOG.md) lists its changes.
 
-It depends on SalahKit `from: "0.2.0"`, and commits no `Package.resolved`, so a new project resolves the newest 0.x release of SalahKit and the SalahTimes it requires. SalahKit is before 1.0: a minor release may change its API, so read its CHANGELOG when you update. To pin the versions your app tested, remove the `Package.resolved` line from `.gitignore` and commit the file.
+It depends on SalahKit `from: "0.4.0"`, and commits no `Package.resolved`, so a new project resolves the newest 0.x release of SalahKit and the SalahTimes it requires. SalahKit is before 1.0: a minor release may change its API, so read its CHANGELOG when you update. To pin the versions your app tested, remove the `Package.resolved` line from `.gitignore` and commit the file.
 
 Everything above is proven on simulators. Signing for a device with a team, the widget and the App Group on a real iPhone, and Time Sensitive alerts arriving on a device are still to be checked on hardware.
 
