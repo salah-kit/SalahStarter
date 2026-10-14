@@ -73,7 +73,8 @@ entitlements files.
 ## Format
 
 The repository uses `swift format` with the shared `.swift-format` configuration (identical
-in every salah-kit repository). CI fails on any finding:
+in every salah-kit repository). CI lints with the formatter of Swift 6.4 (`swift:6.4-noble`);
+an older toolchain's formatter can disagree with it. CI fails on any finding:
 
 ```sh
 scripts/lint.sh                                                     # what CI runs

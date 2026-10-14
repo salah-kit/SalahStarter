@@ -32,7 +32,7 @@ What it deliberately isn't:
 
 The test suite renders these: they're the journeys' screenshots on an iPhone 17 simulator with iOS 27.0.
 
-## Start your app
+## Installation
 
 On GitHub, choose **Use this template**, then **Create a new repository**, and clone it. Then take three steps.
 
@@ -66,11 +66,17 @@ Both targets' entitlements and Info.plist files read this setting, so the app an
 
 ### Run it
 
-Open `SalahStarter.xcodeproj`, choose the `SalahStarter` scheme and a simulator or your iPhone, and run. Choose a place. Then add the widget: touch and hold the Home Screen, tap Edit, then Add Widget, and choose your app.
+Open `SalahStarter.xcodeproj`, choose the `SalahStarter` scheme and a simulator or your iPhone, and run. Choose a place. Then add the widget: touch and hold the Home Screen, tap Edit (or + before iOS 18), then Add Widget, and choose your app.
 
-On an iPhone, Xcode's automatic signing registers your two identifiers, the App Group and the Time Sensitive capability for your team the first time it builds (from the command line, pass `-allowProvisioningUpdates` to `xcodebuild`). If your team can't use the Time Sensitive capability, Xcode says so when it signs. Then remove `com.apple.developer.usernotifications.time-sensitive` from `project.yml`, run `xcodegen`, and in `SalahStarter/PrayerAlerts.swift` make the alert at a prayer's time `.active`.
+On an iPhone, Xcode's automatic signing registers your two identifiers, the App Group and the Time Sensitive capability for your team the first time it builds (from the command line, pass `-allowProvisioningUpdates` to `xcodebuild`). A free Personal Team may not offer every capability; Xcode says so when it signs. Without the Time Sensitive capability:
 
-## How it fits together
+1. remove `com.apple.developer.usernotifications.time-sensitive` from `project.yml` and run [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`xcodegen`);
+2. in `SalahStarter/PrayerAlerts.swift`, make the alert at a prayer's time `.active`, and change the Alerts footer in `SalahStarter/SettingsView.swift`;
+3. update the tests that check it: `content()` in `SalahStarterTests/AlertTests.swift` and the "Time Sensitive alerts are allowed." line in `SalahStarterUITests/StarterJourneys.swift`.
+
+## Quick start
+
+How the pieces fit together:
 
 ```
 SalahStarter/ (the app)             SalahStarterWidget/ (the extension)
@@ -123,7 +129,7 @@ The alerts replan whenever the app becomes active and whenever the settings chan
 | The alerts | `SalahStarter/PrayerAlerts.swift`: what's offered, the wording and the interruption levels |
 | The text | `Shared/Localizable.xcstrings`, with Arabic to review |
 | The icon | `SalahStarter/Assets.xcassets/AppIcon` |
-| The project's name | `project.yml`, then run [XcodeGen](https://github.com/yonaskolb/XcodeGen) |
+| The project's name | Easiest to keep: your app's name is `APP_DISPLAY_NAME`. To rename the project and its targets, change `project.yml` and run XcodeGen, delete the old `SalahStarter.xcodeproj`, and rename the folders, the tests' `@testable import`, and the project, scheme and folder names in `.github/workflows/ci.yml` and `scripts/lint.sh` |
 
 Before you ship, have a native speaker review every translation, and test the widget and the alerts on a real iPhone for a few days: WidgetKit and the notification system decide when things happen, and only a device shows it.
 
@@ -143,7 +149,7 @@ Before you ship, have a native speaker review every translation, and test the wi
 
 The template is used from `main`; it has no releases. [CHANGELOG.md](CHANGELOG.md) lists its changes.
 
-It depends on SalahKit `from: "0.2.0"`, and commits no `Package.resolved`, so a new project resolves the newest 0.x release of SalahKit and the SalahTimes it requires. SalahKit is before 1.0: a minor release may change its API, so read its CHANGELOG when you update. Your app can commit its own `Package.resolved` to pin the versions it tested.
+It depends on SalahKit `from: "0.2.0"`, and commits no `Package.resolved`, so a new project resolves the newest 0.x release of SalahKit and the SalahTimes it requires. SalahKit is before 1.0: a minor release may change its API, so read its CHANGELOG when you update. To pin the versions your app tested, remove the `Package.resolved` line from `.gitignore` and commit the file.
 
 Everything above is proven on simulators. Signing for a device with a team, the widget and the App Group on a real iPhone, and Time Sensitive alerts arriving on a device are still to be checked on hardware.
 
