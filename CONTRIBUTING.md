@@ -38,9 +38,11 @@ That runs:
   - `HomeScreenJourney`: adds the medium widget through Springboard and checks what the real
     extension draws, before and after the app chooses a place.
 
-CI runs everything except `HomeScreenJourney`: Springboard's widget gallery isn't reliable on
-hosted runners, so CI sets `TEST_RUNNER_SALAHSTARTER_SKIP_HOME_SCREEN=1`. When you change the
-widget, run it on a local simulator: `-only-testing:SalahStarterUITests/HomeScreenJourney`.
+CI runs everything except `HomeScreenJourney`, which it skips with
+`TEST_RUNNER_SALAHSTARTER_SKIP_HOME_SCREEN=1`: the journey waits for WidgetKit to run the
+extension, which a cold hosted simulator doesn't do on a schedule a pull request should depend
+on. When you change the widget, run it on a local simulator:
+`-only-testing:SalahStarterUITests/HomeScreenJourney`.
 
 ### On an iOS 27.0 simulator
 
