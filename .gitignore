@@ -9,3 +9,6 @@ xcuserdata/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 Local.xcconfig
+# Xcode resolves SalahKit to the newest release the project allows, so every clone builds on the
+# latest 0.x release instead of a pinned one.
+Package.resolved

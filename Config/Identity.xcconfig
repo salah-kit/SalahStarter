@@ -1,0 +1,12 @@
+// Your app's identity. Change these lines when you start a project from the template
+// (README, steps 2 and 3); nothing else needs to change.
+
+// The app's bundle identifier. The widget extension's is this one followed by `.Widget`.
+APP_BUNDLE_IDENTIFIER = com.example.SalahStarter
+
+// The App Group the app and the widget extension share. Both targets' entitlements and
+// Info.plist files read it, so the app and the widget can't disagree.
+APP_GROUP_IDENTIFIER = group.com.example.SalahStarter
+
+// The name under the app's icon and in the widget gallery.
+APP_DISPLAY_NAME = Salah Starter

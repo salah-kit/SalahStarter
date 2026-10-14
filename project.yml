@@ -1,0 +1,156 @@
+# Generates SalahStarter.xcodeproj. After changing this file, run `xcodegen` in this folder and
+# commit both files (STANDARD.md, Apps). Building needs only Xcode: the generated project is
+# committed.
+#
+# Your app's identity (bundle identifiers, App Group, display name) is in
+# Config/Identity.xcconfig and your signing team in Config/Local.xcconfig. Changing them doesn't
+# need XcodeGen.
+name: SalahStarter
+options:
+  deploymentTarget:
+    # iOS 17 for `containerBackground(for: .widget)`.
+    iOS: "17.0"
+  developmentLanguage: en
+  createIntermediateGroups: true
+configFiles:
+  Debug: Config/Shared.xcconfig
+  Release: Config/Shared.xcconfig
+packages:
+  # Any 0.x release from 0.2.0 on. There's no committed Package.resolved, so a new clone
+  # resolves the newest one.
+  SalahKit:
+    url: https://github.com/salah-kit/SalahKit.git
+    from: 0.2.0
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+    # The default actor isolation of the app's own targets: MainActor, as in a new Xcode
+    # project. CI also builds with APP_DEFAULT_ISOLATION=nonisolated. Don't set
+    # SWIFT_DEFAULT_ACTOR_ISOLATION on the command line instead: it would reach the package
+    # targets too and make SalahTimes' types main-actor-isolated, which no app sees.
+    APP_DEFAULT_ISOLATION: MainActor
+targets:
+  SalahStarter:
+    type: application
+    platform: iOS
+    sources:
+      - path: SalahStarter
+      # The settings, the timeline, the widget's views and the strings: one copy, compiled
+      # into the app and the widget extension.
+      - path: Shared
+    dependencies:
+      # SalahTimes comes with SalahCalculation: the code imports it to name CalculationMethod
+      # and Madhab without a package dependency of its own.
+      - package: SalahKit
+        product: SalahCore
+      - package: SalahKit
+        product: SalahCalculation
+      - package: SalahKit
+        product: SalahWidgets
+      - package: SalahKit
+        product: SalahUI
+      - package: SalahKit
+        product: SalahAlerts
+      - target: SalahStarterWidget
+        embed: true
+    entitlements:
+      path: SalahStarter/SalahStarter.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+        # Lets prayer-time alerts break through Focus and notification summaries.
+        com.apple.developer.usernotifications.time-sensitive: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(APP_BUNDLE_IDENTIFIER)
+        GENERATE_INFOPLIST_FILE: YES
+        # Adds the App Group to the generated Info.plist, where the code reads it.
+        INFOPLIST_FILE: SalahStarter/Info.plist
+        SWIFT_DEFAULT_ACTOR_ISOLATION: $(APP_DEFAULT_ISOLATION)
+        # iPhone only. Set per target: XcodeGen's iOS preset writes "1,2" at target level,
+        # which would override a project-level value.
+        TARGETED_DEVICE_FAMILY: "1"
+        INFOPLIST_KEY_CFBundleDisplayName: $(APP_DISPLAY_NAME)
+        # Add your icon to AppIcon in SalahStarter/Assets.xcassets. AccentColor is the palette's
+        # accent (Shared/Palette.swift).
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone: UIInterfaceOrientationPortrait
+  SalahStarterWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: SalahStarterWidget
+      - path: Shared
+    dependencies:
+      - package: SalahKit
+        product: SalahCore
+      - package: SalahKit
+        product: SalahCalculation
+      - package: SalahKit
+        product: SalahWidgets
+      - package: SalahKit
+        product: SalahUI
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+    entitlements:
+      path: SalahStarterWidget/SalahStarterWidget.entitlements
+      properties:
+        com.apple.security.application-groups:
+          - $(APP_GROUP_IDENTIFIER)
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(APP_BUNDLE_IDENTIFIER).Widget
+        GENERATE_INFOPLIST_FILE: YES
+        # The extension point and the App Group.
+        INFOPLIST_FILE: SalahStarterWidget/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: $(APP_DISPLAY_NAME)
+        SWIFT_DEFAULT_ACTOR_ISOLATION: $(APP_DEFAULT_ISOLATION)
+        TARGETED_DEVICE_FAMILY: "1"
+        SKIP_INSTALL: YES
+  SalahStarterTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: SalahStarterTests
+    dependencies:
+      # Hosted by the app: SalahKit's symbols come from the app binary, not a second copy.
+      - target: SalahStarter
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(APP_BUNDLE_IDENTIFIER).Tests
+        GENERATE_INFOPLIST_FILE: YES
+        SWIFT_DEFAULT_ACTOR_ISOLATION: $(APP_DEFAULT_ISOLATION)
+        TARGETED_DEVICE_FAMILY: "1"
+  SalahStarterUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: SalahStarterUITests
+    dependencies:
+      - target: SalahStarter
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: $(APP_BUNDLE_IDENTIFIER).UITests
+        GENERATE_INFOPLIST_FILE: YES
+        # Gives the journeys the app's display name, which Springboard shows.
+        INFOPLIST_FILE: SalahStarterUITests/Info.plist
+        SWIFT_DEFAULT_ACTOR_ISOLATION: $(APP_DEFAULT_ISOLATION)
+        TARGETED_DEVICE_FAMILY: "1"
+        TEST_TARGET_NAME: SalahStarter
+schemes:
+  SalahStarter:
+    build:
+      targets:
+        SalahStarter: all
+    test:
+      config: Debug
+      gatherCoverageData: false
+      targets:
+        - SalahStarterTests
+        - SalahStarterUITests

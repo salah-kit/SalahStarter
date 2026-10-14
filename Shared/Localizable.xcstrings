@@ -1,0 +1,1279 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ %@" : {
+      "extractionState" : "manual",
+      "shouldTranslate" : false
+    },
+    "%@ began %@ ago." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "دخل وقت %1$@ منذ %2$@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ began %@ ago."
+          }
+        }
+      }
+    },
+    "%@ in %@." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%1$@ بعد %2$@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ in %@."
+          }
+        }
+      }
+    },
+    "%@: no time today." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "%@: لا وقت لها اليوم."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: no time today."
+          }
+        }
+      }
+    },
+    "%lld alerts couldn't be scheduled." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld alert couldn't be scheduled."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld alerts couldn't be scheduled."
+                }
+              }
+            }
+          }
+        },
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة %lld تنبيه."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة تنبيه واحد."
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة تنبيهين."
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة %lld تنبيهات."
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة %lld تنبيهًا."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "تعذّرت جدولة %lld تنبيه."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld minutes before" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld minute before"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld minutes before"
+                }
+              }
+            }
+          }
+        },
+        "ar" : {
+          "variations" : {
+            "plural" : {
+              "zero" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل %lld دقيقة"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل دقيقة واحدة"
+                }
+              },
+              "two" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل دقيقتين"
+                }
+              },
+              "few" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل %lld دقائق"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل %lld دقيقة"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "needs_review",
+                  "value" : "قبل %lld دقيقة"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Alerts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التنبيهات"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alerts"
+          }
+        }
+      }
+    },
+    "Alerts are scheduled until %@." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التنبيهات مجدولة حتى %@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alerts are scheduled until %@."
+          }
+        }
+      }
+    },
+    "An alert at each prayer's time, Time Sensitive so it can come through a Focus." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تنبيه عند وقت كل صلاة، حساس للوقت ليصل حتى في وضع التركيز."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "An alert at each prayer's time, Time Sensitive so it can come through a Focus."
+          }
+        }
+      }
+    },
+    "Asr" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "العصر"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asr"
+          }
+        }
+      }
+    },
+    "Cairo" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "القاهرة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cairo"
+          }
+        }
+      }
+    },
+    "Calculation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الحساب"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Calculation"
+          }
+        }
+      }
+    },
+    "Can't calculate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "يتعذّر الحساب"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Can't calculate"
+          }
+        }
+      }
+    },
+    "Choose a place" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "اختر مكانًا"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choose a place"
+          }
+        }
+      }
+    },
+    "Choosing a place selects the method suggested for its country." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "عند اختيار مكان تُختار الطريقة المقترحة لبلده."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Choosing a place selects the method suggested for its country."
+          }
+        }
+      }
+    },
+    "Diyanet (Türkiye)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "رئاسة الشؤون الدينية (تركيا)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diyanet (Türkiye)"
+          }
+        }
+      }
+    },
+    "Dubai" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "دبي"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dubai"
+          }
+        }
+      }
+    },
+    "Egyptian General Authority of Survey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الهيئة المصرية العامة للمساحة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Egyptian General Authority of Survey"
+          }
+        }
+      }
+    },
+    "Hanafi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الحنفي"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hanafi"
+          }
+        }
+      }
+    },
+    "Institute of Geophysics, Tehran" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "معهد الجيوفيزياء، طهران"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Institute of Geophysics, Tehran"
+          }
+        }
+      }
+    },
+    "Invalid place" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "مكان غير صالح"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid place"
+          }
+        }
+      }
+    },
+    "ISNA (North America)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الجمعية الإسلامية لأمريكا الشمالية"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ISNA (North America)"
+          }
+        }
+      }
+    },
+    "Istanbul" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "إسطنبول"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Istanbul"
+          }
+        }
+      }
+    },
+    "It's time for %@ (%@)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "حان وقت %1$@ (%2$@)."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "It's time for %@ (%@)."
+          }
+        }
+      }
+    },
+    "Jakarta" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "جاكرتا"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jakarta"
+          }
+        }
+      }
+    },
+    "JAKIM (Malaysia)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "جاكيم (ماليزيا)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "JAKIM (Malaysia)"
+          }
+        }
+      }
+    },
+    "Karachi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "كراتشي"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Karachi"
+          }
+        }
+      }
+    },
+    "Kemenag (Indonesia)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "وزارة الشؤون الدينية (إندونيسيا)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kemenag (Indonesia)"
+          }
+        }
+      }
+    },
+    "Kuala Lumpur" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "كوالالمبور"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuala Lumpur"
+          }
+        }
+      }
+    },
+    "Kuwait" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الكويت"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuwait"
+          }
+        }
+      }
+    },
+    "London" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لندن"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "London"
+          }
+        }
+      }
+    },
+    "Makkah" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "مكة المكرمة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Makkah"
+          }
+        }
+      }
+    },
+    "Method" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الطريقة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Method"
+          }
+        }
+      }
+    },
+    "Moonsighting Committee" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لجنة رؤية الهلال"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moonsighting Committee"
+          }
+        }
+      }
+    },
+    "Mosques and communities in one country often follow different methods." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "كثيرًا ما تتبع المساجد والجاليات في البلد الواحد طرقًا مختلفة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mosques and communities in one country often follow different methods."
+          }
+        }
+      }
+    },
+    "MUIS (Singapore)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "المجلس الإسلامي السنغافوري (سنغافورة)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MUIS (Singapore)"
+          }
+        }
+      }
+    },
+    "Muslim World League" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "رابطة العالم الإسلامي"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muslim World League"
+          }
+        }
+      }
+    },
+    "New York" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "نيويورك"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "New York"
+          }
+        }
+      }
+    },
+    "Next prayer unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الصلاة التالية غير معروفة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Next prayer unknown"
+          }
+        }
+      }
+    },
+    "No prayer times" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لا مواقيت للصلاة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No prayer times"
+          }
+        }
+      }
+    },
+    "No prayer times are available." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لا تتوفر مواقيت للصلاة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No prayer times are available."
+          }
+        }
+      }
+    },
+    "No times" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لا مواقيت"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No times"
+          }
+        }
+      }
+    },
+    "None" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "بلا تذكير"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "None"
+          }
+        }
+      }
+    },
+    "Notifications are allowed." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الإشعارات مسموح بها."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications are allowed."
+          }
+        }
+      }
+    },
+    "Notifications are turned off in the Settings app." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الإشعارات مُطفأة في تطبيق الإعدادات."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications are turned off in the Settings app."
+          }
+        }
+      }
+    },
+    "Notifications aren't allowed yet." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "لم يُسمح بالإشعارات بعد."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notifications aren't allowed yet."
+          }
+        }
+      }
+    },
+    "Open the app to choose a place." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "افتح التطبيق لاختيار مكان."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open the app to choose a place."
+          }
+        }
+      }
+    },
+    "Open the app to refresh the prayer times." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "افتح التطبيق لتحديث مواقيت الصلاة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open the app to refresh the prayer times."
+          }
+        }
+      }
+    },
+    "Place" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "المكان"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place"
+          }
+        }
+      }
+    },
+    "Prayer alerts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تنبيهات الصلاة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prayer alerts"
+          }
+        }
+      }
+    },
+    "Prayer Times" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "مواقيت الصلاة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prayer Times"
+          }
+        }
+      }
+    },
+    "Prayer times can't be calculated here today." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "يتعذّر حساب مواقيت الصلاة هنا اليوم."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prayer times can't be calculated here today."
+          }
+        }
+      }
+    },
+    "Qatar" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "قطر"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qatar"
+          }
+        }
+      }
+    },
+    "Refresh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تحديث"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh"
+          }
+        }
+      }
+    },
+    "Reminder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التذكير"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reminder"
+          }
+        }
+      }
+    },
+    "Set up" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "إعداد"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set up"
+          }
+        }
+      }
+    },
+    "Settings" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الإعدادات"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Settings"
+          }
+        }
+      }
+    },
+    "Standard (Shafi'i, Maliki, Hanbali)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الجمهور (الشافعي والمالكي والحنبلي)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard (Shafi'i, Maliki, Hanbali)"
+          }
+        }
+      }
+    },
+    "The next prayer and today's times." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الصلاة التالية ومواقيت اليوم."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The next prayer and today's times."
+          }
+        }
+      }
+    },
+    "The next prayer isn't known." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الصلاة التالية غير معروفة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The next prayer isn't known."
+          }
+        }
+      }
+    },
+    "The place or the settings aren't valid." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "المكان أو الإعدادات غير صالحة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The place or the settings aren't valid."
+          }
+        }
+      }
+    },
+    "The widget shows the place's prayer times once you choose it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تعرض الأداة مواقيت الصلاة للمكان بعد اختياره."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The widget shows the place's prayer times once you choose it."
+          }
+        }
+      }
+    },
+    "The widget's settings couldn't be saved: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "تعذّر حفظ إعدادات الأداة: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The widget's settings couldn't be saved: %@"
+          }
+        }
+      }
+    },
+    "Time Sensitive alerts are allowed." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التنبيهات الحساسة للوقت مسموح بها."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time Sensitive alerts are allowed."
+          }
+        }
+      }
+    },
+    "Time Sensitive alerts are turned off in the Settings app." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التنبيهات الحساسة للوقت مُطفأة في تطبيق الإعدادات."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time Sensitive alerts are turned off in the Settings app."
+          }
+        }
+      }
+    },
+    "Time Sensitive alerts aren't available." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "التنبيهات الحساسة للوقت غير متاحة."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Time Sensitive alerts aren't available."
+          }
+        }
+      }
+    },
+    "Times need refreshing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "المواقيت بحاجة إلى تحديث"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Times need refreshing"
+          }
+        }
+      }
+    },
+    "Umm al-Qura (Makkah)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "أم القرى (مكة المكرمة)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Umm al-Qura (Makkah)"
+          }
+        }
+      }
+    },
+    "University of Islamic Sciences, Karachi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "جامعة العلوم الإسلامية، كراتشي"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "University of Islamic Sciences, Karachi"
+          }
+        }
+      }
+    },
+    "Unknown" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "غير معروفة"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unknown"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}
