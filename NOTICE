@@ -1,0 +1,12 @@
+SalahStarter
+Copyright (c) 2026 The Salah Kit Authors. MIT License; see LICENSE.
+
+This repository contains no third-party code, data or media.
+
+Building it downloads two Swift packages with Swift Package Manager, SalahKit
+(https://github.com/salah-kit/SalahKit) and SalahTimes
+(https://github.com/salah-kit/SalahTimes). Both are Copyright (c) 2026 The Salah
+Kit Authors and licensed under the MIT License. Their own NOTICE files list the
+third-party material they contain.
+
+The app's notifications use the system's default sound; it bundles no audio.

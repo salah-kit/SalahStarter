@@ -1,0 +1,6 @@
+# The salah-kit standard pins official actions to a major version (STANDARD.md, CI).
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        "actions/*": ref-pin
