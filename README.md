@@ -129,7 +129,7 @@ The alerts replan whenever the app becomes active and whenever the settings chan
 | The alerts | `SalahStarter/PrayerAlerts.swift`: what's offered, the wording and the interruption levels |
 | The text | `Shared/Localizable.xcstrings`, with Arabic to review |
 | The icon | `SalahStarter/Assets.xcassets/AppIcon` |
-| The project's name | Easiest to keep: your app's name is `APP_DISPLAY_NAME`. To rename the project and its targets, change `project.yml` and run XcodeGen, delete the old `SalahStarter.xcodeproj`, and rename the folders, the tests' `@testable import`, and the project, scheme and folder names in `.github/workflows/ci.yml`, `scripts/lint.sh` and the commands in `CONTRIBUTING.md` |
+| The project's name | Easiest to keep: your app's name is `APP_DISPLAY_NAME`. To rename the project and its targets, in this order: rename the four `SalahStarter` folders and the two `.entitlements` files in them; change every `SalahStarter` in `project.yml` to the new name; run XcodeGen and delete the old `SalahStarter.xcodeproj`; then change the tests' `@testable import`, and the project, scheme and folder names in `.github/workflows/ci.yml`, `scripts/lint.sh` and the commands in `CONTRIBUTING.md` |
 
 Before you ship, have a native speaker review every translation, and test the widget and the alerts on a real iPhone for a few days: WidgetKit and the notification system decide when things happen, and only a device shows it.
 
