@@ -1,6 +1,6 @@
 # Contributing to SalahStarter
 
-Thanks for helping. This page covers building, testing and formatting the template. The
+Thanks for helping. This page covers building, testing, formatting and changing the template. The
 organization's code of conduct, security policy, support page and issue and pull-request
 templates live once, in [salah-kit/.github](https://github.com/salah-kit/.github), and apply
 here.
@@ -90,7 +90,8 @@ swift format --in-place --recursive SalahStarter SalahStarterWidget Shared \
 
 The app's text is in `Shared/Localizable.xcstrings`, in English and Arabic. Machine-drafted
 translations are marked `needs_review`; a native speaker sets a reviewed entry to `translated`.
-Prayer names come from SalahKit's own catalog.
+Prayer names come from SalahKit's own catalog. The Arabic review is an open issue labelled
+[`translation`](https://github.com/salah-kit/SalahStarter/issues?q=is%3Aissue+is%3Aopen+label%3Atranslation).
 
 ## Screenshots
 
@@ -108,3 +109,13 @@ sips -Z 600 <folder>/*.png
   the bug.
 - CI must pass.
 - Add a line to the Unreleased section of [CHANGELOG.md](CHANGELOG.md).
+
+## Releases
+
+The template has no versions or tags. "Use this template" copies `main`, so every change
+reaches new projects as soon as it lands: keep `main` green, and list each change in the
+Unreleased section of [CHANGELOG.md](CHANGELOG.md) with the date it landed.
+
+Some checks need a real iPhone or days of use: signing with your own team, Time Sensitive
+alerts through a Focus, and the widgets over a day or two. They're open issues labelled
+[`help wanted`](https://github.com/salah-kit/SalahStarter/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22).

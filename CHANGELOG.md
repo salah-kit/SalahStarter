@@ -6,6 +6,11 @@ this template" copies `main`, so changes are listed under Unreleased with the da
 
 ## [Unreleased]
 
+### Changed
+
+- Point contributors to the checks that need a real iPhone and to the Arabic review, which are
+  open `help wanted` issues, and say how changes reach new projects (2026-10-15).
+
 ### Fixed
 
 - Build the app and widget with SalahKit 0.4.0's row configuration, preserving the prayer-row
